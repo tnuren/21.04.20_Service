@@ -27,13 +27,11 @@ public class MemberService {
 		pw = scan.next();
 		for (int i = 0; i < memberList.size(); i++) {
 			// && 사용 가능.
-			if (id.equals(memberList.get(i).getId())) {
-				if (pw.equals(memberList.get(i).getPw())) {
-					System.out.println(memberList.get(i).getName() + "님 환영합니다!");
-				} else {
-					System.out.println("아이디 또는 비밀번호가 틀립니다.");
-				}
+			if (id.equals(memberList.get(i).getId()) && pw.equals(memberList.get(i).getPw())) {
+				System.out.println(name + "님 환영합니다");
 
+			} else {
+				System.out.println("아이디 또는 비밀번호가 틀립니다.");
 			}
 		}
 
@@ -46,19 +44,16 @@ public class MemberService {
 		System.out.print("비밀번호를 입력해주세요 : ");
 		pw = scan.next();
 		for (int i = 0; i < memberList.size(); i++) {
-			if (id.equals(memberList.get(i).getId())) {
-				if (pw.equals(memberList.get(i).getPw())) {
-					System.out.println(memberList.get(i).getName() + "님 환영합니다!");
-					System.out.print("변경할 전화번호를 입력해주세요 : ");
-					number = scan.next();
-					memberList.get(i).setNumber(number);
-				} else {
-					System.out.println("아이디 또는 비밀번호가 틀립니다.");
-				}
-
+			if (id.equals(memberList.get(i).getId()) && pw.equals(memberList.get(i).getPw())) {
+				System.out.print("변경할 전화번호를 입력해주세요 : ");
+				number = scan.next();
+				memberList.get(i).setNumber(number);
+			} else {
+				System.out.println("아이디 또는 비밀번호가 틀립니다.");
 			}
-		}
-		return memberList;
+			
+		}return memberList;
+
 	}
 
 }
